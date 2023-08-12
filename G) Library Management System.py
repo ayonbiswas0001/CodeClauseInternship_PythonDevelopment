@@ -55,8 +55,6 @@ def search_book():
             result += f"Available Copies: {book.copies - book.issued_copies}\n\n"
             search_results.insert(tk.END, result)
 
-
-
 # Create a library management system instance
 library = LibraryManagementSystem()
 
@@ -126,7 +124,6 @@ def return_book():
     status_label.config(text="Book not found or not issued to the student.")
 
 
-
 # Function to refresh the list of available books
 def refresh_list():
     available_books = library.view_available_books()
@@ -141,7 +138,6 @@ def refresh_list():
 # Create the main window
 root = tk.Tk()
 root.title("Library Management System")
-
 
 
 # Create labels and entry widgets for adding books
@@ -213,7 +209,6 @@ return_button = tk.Button(root, text="Return Book", command=return_book)
 return_button.grid(row=14, column=0, columnspan=2, padx=10, pady=10)
 
 
-
 # Create a Text widget to display search results
 search_results = tk.Text(root, wrap=tk.WORD, width=60, height=9)
 search_results.grid(row=17, column=0, columnspan=2, padx=10, pady=10)
@@ -277,7 +272,3 @@ status_label.grid(row=228, column=100, columnspan=20)
 
 # Start the main event loop
 root.mainloop()
-
-
-
-
