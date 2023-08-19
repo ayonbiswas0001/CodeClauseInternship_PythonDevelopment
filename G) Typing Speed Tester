@@ -1,12 +1,10 @@
 import tkinter as tk
 import time
 
-
 class TypingSpeedTester:
     def __init__(self, root):
         self.root = root
         self.root.title("Typing Speed Tester")
-        self.root.configure(bg="#f0f0f0")  # Background color
 
         self.passage = "The quick brown fox jumps over the lazy dog."
         self.passage_words = self.passage.split()
@@ -90,14 +88,13 @@ class TypingSpeedTester:
         return compliments.get(level, "")
 
     def create_widgets(self):
-        self.passage_label = tk.Label(self.root, text="Type the following passage:", bg="#f0f0f0",
-                                      font=("Helvetica", 14))
+        self.passage_label = tk.Label(self.root, text="Type the following passage:", font=("Helvetica", 14))
         self.passage_label.pack(pady=(20, 5))
 
-        self.passage_text = tk.Label(self.root, text=self.passage, bg="#f0f0f0", font=("Helvetica", 12))
+        self.passage_text = tk.Label(self.root, text=self.passage, font=("Helvetica", 12))
         self.passage_text.pack()
 
-        self.timer_label = tk.Label(self.root, text="Time: 0.00 seconds", bg="#f0f0f0", font=("Helvetica", 12))
+        self.timer_label = tk.Label(self.root, text="Time: 0.00 seconds", font=("Helvetica", 12))
         self.timer_label.pack()
 
         self.text_input = tk.Text(self.root, wrap="word", width=40, height=6, font=("Helvetica", 12))
@@ -105,12 +102,11 @@ class TypingSpeedTester:
         self.text_input.bind("<KeyPress>", lambda event: self.start_timer())
         self.text_input.bind("<KeyRelease>", self.check_accuracy)
 
-        self.result_label = tk.Label(self.root, text="", bg="#f0f0f0", font=("Helvetica", 12, "bold"))
+        self.result_label = tk.Label(self.root, text="", font=("Helvetica", 12, "bold"))
         self.result_label.pack(pady=(10, 20))
 
-        self.compliment_label = tk.Label(self.root, text="", bg="#f0f0f0", font=("Helvetica", 12, "italic"))
+        self.compliment_label = tk.Label(self.root, text="", font=("Helvetica", 12, "italic"))
         self.compliment_label.pack()
-
 
 if __name__ == "__main__":
     root = tk.Tk()
