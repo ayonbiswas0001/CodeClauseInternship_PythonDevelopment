@@ -41,13 +41,11 @@ class TypingSpeedTester:
     def check_accuracy(self, event):
         if self.timer_running:
             self.typed_text = self.text_input.get("1.0", "end-1c")
-            self.update_compliment()
-
             typed_words = self.typed_text.split()
             accuracy = sum(1 for typed, passage in zip(typed_words, self.passage_words) if typed == passage) / len(
                 self.passage_words)
 
-            if accuracy >= 1.0:
+            if accuracy >= 1.0 and self.typed_text.strip() == self.passage:
                 self.timer_running = False
                 elapsed_time = time.time() - self.start_time
                 wpm = (len(self.passage_words) / elapsed_time) * 60
@@ -57,16 +55,6 @@ class TypingSpeedTester:
         self.result_label.config(
             text="Time taken: {:.2f} seconds\nWords typed: {}\nWords per minute (WPM): {:.2f}".format(elapsed_time,
                                                                                                       words_typed, wpm))
-
-        for level in self.levels:
-            if level[0] <= wpm <= level[1]:
-                self.compliment_label.config(
-                    text="Your typing speed level: {}\n{}".format(level[2], self.get_compliment(level[2])))
-                break
-
-    def update_compliment(self):
-        typed_words = self.typed_text.split()
-        wpm = (len(typed_words) / (time.time() - self.start_time)) * 60
 
         for level in self.levels:
             if level[0] <= wpm <= level[1]:
