@@ -248,7 +248,6 @@ search_button = tk.Button(root, text="Search", command=search_book)
 search_button.grid(row=15, column=0, columnspan=2, padx=10, pady=10)
 
 
-
 # Create UI components for book search
 search_label = tk.Label(root, text="Search Book:")
 search_entry = tk.Entry(root)
