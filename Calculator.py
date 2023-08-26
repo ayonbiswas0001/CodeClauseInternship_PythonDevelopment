@@ -14,7 +14,7 @@ def button_click(event):
     current = entry.get()
     text = event.widget.cget("text")
     if text == "=":
-        evaluate_expression()
+        evaluate_expression() 
     elif text == "C":
         entry.delete(0, tk.END)
     else:
